@@ -1,0 +1,51 @@
+﻿-- Если таблица 'Users' уже существует, удалите ее, чтобы создать заново
+IF OBJECT_ID('Users', 'U') IS NOT NULL
+    DROP TABLE Users;
+GO
+
+-- Создание таблицы Users с типами данных, точно соответствующими классу C# User.
+-- Все строковые поля установлены с запасом (NVARCHAR(255)), чтобы избежать ошибок длины.
+CREATE TABLE Users (
+    -- 1. Identifiers and Core Data
+    Id INT PRIMARY KEY,                       -- int (C#)
+    Login NVARCHAR(50) NOT NULL,              -- string (C#)
+    FirstName NVARCHAR(50) NOT NULL,          -- string (C#)
+    LastName NVARCHAR(50) NOT NULL,           -- string (C#)
+    Gender NVARCHAR(10) NOT NULL,             -- string (C#)
+
+    -- 2. Contact Information
+    Email NVARCHAR(255) NOT NULL,             -- string (C#)
+    Phone NVARCHAR(20) NOT NULL,              -- string (C#)
+    Country NVARCHAR(50) NOT NULL,            -- string (C#)
+    City NVARCHAR(50) NOT NULL,               -- string (C#)
+    ZipCode NVARCHAR(10) NOT NULL,            -- string (C#)
+
+    -- 3. Dates and Time
+    RegistrationDate DATETIME2 NOT NULL,      -- DateTime (C#)
+    LastLogin DATETIME2 NOT NULL,             -- DateTime (C#)
+    DateOfBirth DATE NOT NULL,                -- DateTime (C#) (только дата)
+    BirthYear INT NOT NULL,                   -- int (C#)
+    TimeUTC TIME NOT NULL,                    -- TimeSpan (C#)
+
+    -- 4. Numeric Metrics
+    Age INT NOT NULL,                         -- int (C#)
+    BalanceUSD DECIMAL(18, 2) NOT NULL,       -- decimal (C#)
+    PurchaseCount INT NOT NULL,               -- int (C#)
+    Rating FLOAT NOT NULL,                    -- double (C#)
+    DiscountPercent INT NOT NULL,             -- int (C#)
+
+    -- 5. Status and Logic
+    Status NVARCHAR(50) NOT NULL,             -- string (C#)
+    IsVIPClient BIT NOT NULL,                 -- bool (C#)
+    EmailConfirmed BIT NOT NULL,              -- bool (C#)
+    SubscriptionActive BIT NOT NULL,          -- bool (C#)
+    ReceiveNewsletter BIT NOT NULL,           -- bool (C#)
+
+    -- 6. Additional Data
+    Priority NVARCHAR(20) NOT NULL,           -- string (C#)
+    Language NVARCHAR(5) NOT NULL,            -- string (C#)
+    TrafficSource NVARCHAR(50) NOT NULL,      -- string (C#)
+    LastProduct NVARCHAR(100) NOT NULL,       -- string (C#)
+    Comment NVARCHAR(255) NOT NULL            -- string (C#)
+);
+GO
