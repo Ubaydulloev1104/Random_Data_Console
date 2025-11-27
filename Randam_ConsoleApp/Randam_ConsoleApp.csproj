@@ -15,8 +15,4 @@
     <EditorConfigFiles Remove="C:\Users\azamjon\Desktop\Apps\Randam_ConsoleApp\.editorconfig" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="C:\Users\azamjon\Desktop\Apps\Randam_ConsoleApp\.editorconfig" />
-  </ItemGroup>
-
 </Project>
