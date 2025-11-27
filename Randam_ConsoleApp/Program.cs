@@ -11,8 +11,7 @@ using System.Reflection;
 
 public class Program
 {
-    // --- Configuration ---
-    // Установлено 10 для быстрой проверки после устранения ошибки таймаута
+
     private const int NumRecords = 1000000;
 
     // ВАЖНО: Убедитесь, что эта строка подключения корректна для вашего SQL Server.
